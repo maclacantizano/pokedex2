@@ -1,23 +1,26 @@
-<ion-header >
-<ion-toolbar class="titulo">
-  <ion-title>
-    Pokedex
-  </ion-title>
-</ion-toolbar>
+<ion-header>
+  <ion-toolbar class="titulo">
+    <ion-title> Pokedex </ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content class="fundo">
-<ion-card [color]="pokemon.types[0].type.name" 
-*ngFor='let pokemon of listaPokemon'>
-  <ion-card-header>
-    <img [src]="'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/'+pokemon.id.toString().pasStart(3, '0')+'.png'">
+  <ion-card
+    [color]="pokemon.types[0].type.name"
+    *ngFor="let pokemon of listaPokemon"
+  >
+    <ion-card-header>
+      <img
+        [src]="'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/'+pokemon.id.toString().padStart(3, '0')+'.png'"
+      />
 
-    <ion-badge color="grass">#{{pokemon.id}}</ion-badge>
-    <ion-card-title>{{ pokemon.name | titlecase }}</ion-card-title>
-    <ion-badge *ngFor= 'let type of pokemon.types' [color]="type.type.name">{{type.type.name}}</ion-badge>
-    
-  </ion-card-header>
-</ion-card>
+      <ion-badge color="grass">#{{pokemon.id}}</ion-badge>
 
+      <ion-card-title>{{ pokemon.name | titlecase }}</ion-card-title>
 
+      <ion-badge *ngFor="let type of pokemon.types" [color]="type.type.name">
+        {{type.type.name}}
+      </ion-badge>
+    </ion-card-header>
+  </ion-card>
 </ion-content>
